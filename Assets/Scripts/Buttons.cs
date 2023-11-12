@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    public GameObject loading,mainMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,14 @@ public class Buttons : MonoBehaviour
 
     public void GameStart()
     {
-        SceneManager.LoadScene("Stage1");
+        //mainMenu.SetActive(false);
+        loading.SetActive(true);
+        Invoke("StartGame", 3f);
     }
+    void StartGame() {
+        SceneManager.LoadScene("Stage1");
 
+    }
     public void GameQuit()
     {
         Application.Quit();
